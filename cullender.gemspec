@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = Cullender::VERSION
   s.authors       = ["Chris Waddington"]
   s.email         = ["cwadding@gmail.com"]
-  s.homepage    = "TODO"
+  s.homepage    = "https://github.com/cwadding/cullender"
   s.summary     = "A rails engine to add notification when an event occurs."
   s.description = "Cullender allows you to filter out only what is important by creating ElasticSearch percolate queries allowing you to be notified only when a desired rule is met."
 
