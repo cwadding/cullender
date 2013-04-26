@@ -1,0 +1,3 @@
+jQuery(function() {
+	$('#cullender_triggers').replaceWith("<%= escape_javascript(render 'trigger_fields', mapping: resource_class.mapping) %>");
+});

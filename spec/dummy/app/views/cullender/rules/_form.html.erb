@@ -1,0 +1,33 @@
+<style type="text/css">
+.group{
+  margin-left:10px;
+}
+</style>
+<%= form_for(@rule, :as => 'rule', :url => event_rules_path, :remote => true) do |f| %>
+  <% if @rule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rule.errors.count, "error") %> prohibited this rule from being saved:</h2>
+
+      <ul>
+      <% @rule.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  
+  <%= params.inspect %>	
+  <fieldset id="triggers" class="filters">
+    <legend>Triggers</legend>
+    <%= render 'trigger_fields', mapping: resource_class.mapping %> 
+  </fieldset>    
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

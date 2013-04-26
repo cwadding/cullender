@@ -1,0 +1,20 @@
+<%= simple_form_for rule, :html => { :class => "form-horizontal" } do |f| %>
+	<%= f.error_notification %>
+	<div class="form-inputs">
+	<fieldset id="rule">
+		<legend>Rule Description</legend>
+		<%= f.input :name %>
+		<%= f.input :description %>
+		<%= f.association :table, :prompt => "Select Type" %>
+	</fieldset>
+	
+	<fieldset id="triggers" class="filters">
+		<legend>Triggers</legend>
+		<%= render 'trigger_fields', :locals => {properties: Event.properties} %>	
+	</fieldset>
+	
+	<div class="form-actions">
+	<%= f.error :base %>
+	<%= f.button :submit %>
+	</div>
+<% end %>

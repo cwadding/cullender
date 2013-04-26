@@ -1,0 +1,19 @@
+<div id="cullender_triggers">
+	<% if params.has_key?("triggers") || params.has_key?("rule") && params["rule"].has_key?("triggers") %>
+		<%= render_property_tree("rule[triggers]", mapping, extract_triggers(params)) do |html, at_end, hierarchy| %>
+			<div class="controls">
+			<%= html %>
+			</div>
+			<div class="controls">
+				<% if at_end < 0 %>
+					<%= cullender_collection_or_select(mapping.keys, hierarchy) %>
+				<% else %>
+					<%= cullender_collection_and_select(mapping.keys, hierarchy) %>
+				<% end -%>
+			</div>
+		<% end %>
+	<% end %>
+	<div class="controls">
+		<%= cullender_collection_or_select(mapping.keys, [], {:base => true}) %>
+	</div>
+</div>

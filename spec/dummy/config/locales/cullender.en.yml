@@ -1,0 +1,12 @@
+en:
+  cullender:
+    operators:
+      term: "is"
+      prefix: "starts with"
+      gt: ">"
+      gte: ">="
+      lte: "<="
+      lt: "<"
+      eq: "=="
+      from: "from"
+      to: "to"
