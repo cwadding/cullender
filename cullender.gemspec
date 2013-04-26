@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.authors       = ["Chris Waddington"]
   s.email         = ["cwadding@gmail.com"]
   s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Cullender."
-  s.description = "TODO: Description of Cullender."
+  s.summary     = "A rails engine to add notification when an event occurs."
+  s.description = "Cullender allows you to filter out only what is important by creating ElasticSearch percolate queries allowing you to be notified only when a desired rule is met."
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["spec/**/*"]
