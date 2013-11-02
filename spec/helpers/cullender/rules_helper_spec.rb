@@ -20,14 +20,14 @@ describe Cullender::RulesHelper do
       context "is base" do
         it "renders the attribute select menu and OR submit btn" do
           html = helper.cullender_collection_or_select(["attr1", "attr2"], [], {:base => true})
-          html.should have_selector("select#or_raise_fieldprefix", :text => "attr1\nattr2")
+          html.should have_selector("select#or_raise_fieldprefix", :text => "attr1attr2")
           html.should have_selector("input[type='submit'][name='or[raise]prefix']")
         end
       end
       context "is not a base" do
         it "renders the attribute select menu and OR submit btn" do
           html = helper.cullender_collection_or_select(["attr1", "attr2"])
-          html.should have_selector("select#or_fieldprefix", :text => "attr1\nattr2")
+          html.should have_selector("select#or_fieldprefix", :text => "attr1attr2")
           html.should have_selector("input[type='submit'][name='or[commit]prefix']")
         end
       end
@@ -40,7 +40,7 @@ describe Cullender::RulesHelper do
       end
       it "renders the attribute select menu and AND submit btn" do
         html = helper.cullender_collection_and_select(["attr1", "attr2"])
-        html.should have_selector("select#and_fieldprefix", :text => "attr1\nattr2")
+        html.should have_selector("select#and_fieldprefix", :text => "attr1attr2")
         html.should have_selector("input[type='submit'][name='and[commit]prefix']")
       end
   end

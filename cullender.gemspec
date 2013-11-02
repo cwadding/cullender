@@ -10,13 +10,13 @@ Gem::Specification.new do |s|
   s.authors       = ["Chris Waddington"]
   s.email         = ["cwadding@gmail.com"]
   s.homepage    = "https://github.com/cwadding/cullender"
-  s.summary     = "A rails engine to add notification when an event occurs."
-  s.description = "Cullender allows you to filter out only what is important by creating ElasticSearch percolate queries allowing you to be notified only when a desired rule is met."
+  s.summary     = "Easily add undo and redo logic to your rails application."
+  s.description = "A rails engine to add undo and redo buttons to your flash messages."
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["spec/**/*"]
 
-  s.add_dependency "rails", "~> 4.0.0.beta1"
+  s.add_dependency "rails", "~> 4.0.1"
   s.add_dependency "tire"
   s.add_dependency "jquery-rails"
 

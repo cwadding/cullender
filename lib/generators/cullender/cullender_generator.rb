@@ -14,6 +14,16 @@ module Cullender
 			class_option :routes, :desc => "Generate routes", :type => :boolean, :default => true           
 
 
+			def self.next_migration_number(path)
+				unless @prev_migration_nr
+					@prev_migration_nr = Time.now.utc.strftime("%Y%m%d%H%M%S").to_i
+				else
+					@prev_migration_nr += 1
+				end
+				@prev_migration_nr.to_s
+			end
+
+
 			def add_cullender_routes
 				cullender_route  = "cullender_for :#{plural_name}"
 				cullender_route << %Q(, :class_name => "#{class_name}") if class_name.include?("::")

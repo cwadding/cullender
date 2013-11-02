@@ -11,5 +11,5 @@ gemspec
 # your gem to rubygems.org.
 
 # To use debugger
-gem 'debugger'
-gem "jquery-rails"
+# gem 'debugger'
+# gem "jquery-rails"

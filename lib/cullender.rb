@@ -1,19 +1,6 @@
 require "tire"
 require "cullender/core_ext/hash"
 
-module Rails
-  module Generators
-  	module Migration
-		module ClassMethods
-			def next_migration_number(dirname) #:nodoc:
-				"123344556676"
-			end
-		end
-  	end
-  end
-end
-
-
 module Cullender
 
   module Controllers

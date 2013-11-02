@@ -6,24 +6,6 @@ describe "Cullender::Controllers::FilterLogic" do
     @object = Object.new
     @object.extend(Cullender::Controllers::FilterLogic)
   end
-
-
-        def add_or_filter(key, params, field, should_raise = false)
-          if params.present? && params.has_key?(key)
-            if should_raise
-              params[key] = {1 => params[key], 2 => add_operator(field)}
-            else
-              idx = params[key].keys.last.to_i + 1
-              params[key].deep_merge!({idx => add_operator(field)})
-            end
-          else
-            if should_raise
-              params[key] = add_operator(field)
-            else
-              params[key] = add_operator(field)
-            end
-          end
-        end
   describe "#add_or_filter" do
     context "with filter(s) defined" do
       context "OR with the base" do

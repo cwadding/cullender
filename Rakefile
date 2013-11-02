@@ -4,6 +4,8 @@ rescue LoadError
   puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
 end
 
+require "bundler/gem_tasks"
+
 require 'rdoc/task'
 
 RDoc::Task.new(:rdoc) do |rdoc|
@@ -21,14 +23,18 @@ load 'rails/tasks/engine.rake'
 
 Bundler::GemHelper.install_tasks
 
-require 'rake/testtask'
+require 'rspec/core/rake_task'
+task :default => :spec
+RSpec::Core::RakeTask.new
 
-Rake::TestTask.new(:test) do |t|
-  t.libs << 'lib'
-  t.libs << 'spec'
-  t.pattern = 'spec/**/*_spec.rb'
-  t.verbose = false
-end
+# require 'rake/testtask'
+
+# Rake::TestTask.new(:test) do |t|
+#   t.libs << 'lib'
+#   t.libs << 'spec'
+#   t.pattern = 'spec/**/*_spec.rb'
+#   t.verbose = false
+# end
 
 
-task default: :test
+# task default: :test
