@@ -1,6 +1,6 @@
 module Cullender
   class Rule < ActiveRecord::Base
-
+  	include ActiveModel::ForbiddenAttributesProtection
   	before_create :add_event_percolation
   	before_update :modify_event_percolation
   	before_destroy :remove_event_percolation

@@ -1,6 +1,7 @@
+# require "elasticsearch"
 require "tire"
 require "cullender/core_ext/hash"
-
+require "strong_parameters"
 module Cullender
 
   module Controllers

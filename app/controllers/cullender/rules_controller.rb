@@ -1,6 +1,6 @@
 module Cullender
   class RulesController < CullenderController
-    before_action :set_rule, only: [:show, :edit, :update, :destroy]
+    # before_action :set_rule, only: [:show, :edit, :update, :destroy]
     include Controllers::FilterLogic
     
     # TODO should route without resource. ie not event/rules just /rules
@@ -11,6 +11,7 @@ module Cullender
 
     # GET /rules/1
     def show
+      @rule = Cullender::Rule.find(params[:id])
       params.deep_merge!({"rule" => {"triggers" => @rule.triggers}})
     end
 
@@ -41,6 +42,7 @@ module Cullender
 
     # PATCH/PUT /rules/1
     def update
+      @rule = Cullender::Rule.find(params[:id])
       if !apply_filter_actions("triggers", params[:rule], params) && @rule.update_attributes(rule_params)
         redirect_to send("#{resource_name}_rules_url".to_sym), notice: 'Rule was successfully updated.'
       else
@@ -50,15 +52,12 @@ module Cullender
 
     # DELETE /rules/1
     def destroy
+      @rule = Cullender::Rule.find(params[:id])
       @rule.destroy
       redirect_to send("#{resource_name}_rules_url".to_sym), notice: 'Rule was successfully destroyed.'
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
-      def set_rule
-        @rule = Cullender::Rule.find(params[:id])
-      end
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def rule_params

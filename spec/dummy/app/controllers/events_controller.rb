@@ -1,6 +1,6 @@
 module Cullender
   class EventsController < ApplicationController
-    before_action :set_event, only: [:show, :edit, :update, :destroy]
+    # before_action :set_event, only: [:show, :edit, :update, :destroy]
 
     # GET /events
     def index
@@ -9,6 +9,7 @@ module Cullender
 
     # GET /events/1
     def show
+      @event = Event.find(params[:id])
     end
 
     # GET /events/new
@@ -18,6 +19,7 @@ module Cullender
 
     # GET /events/1/edit
     def edit
+      @event = Event.find(params[:id])
     end
 
     # POST /events
@@ -33,6 +35,7 @@ module Cullender
 
     # PATCH/PUT /events/1
     def update
+      @event = Event.find(params[:id])
       if @event.update(event_params)
         redirect_to @event, notice: 'Event was successfully updated.'
       else
@@ -42,15 +45,12 @@ module Cullender
 
     # DELETE /events/1
     def destroy
+      @event = Event.find(params[:id])
       @event.destroy
       redirect_to events_url, notice: 'Event was successfully destroyed.'
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
-      def set_event
-        @event = Event.find(params[:id])
-      end
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def event_params
