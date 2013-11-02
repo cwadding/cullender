@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.authors       = ["Chris Waddington"]
   s.email         = ["cwadding@gmail.com"]
   s.homepage    = "https://github.com/cwadding/cullender"
-  s.summary     = "Easily add undo and redo logic to your rails application."
-  s.description = "A rails engine to add undo and redo buttons to your flash messages."
+  s.summary     = "A rails engine to easily integrate elasticsearch percolote feature."
+  s.description = "Create reverse queries and add them to elasticsearch to trigger an event any time a new record matches any of the queries."
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["spec/**/*"]
